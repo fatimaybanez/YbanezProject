@@ -25,6 +25,11 @@ public class Home extends AppCompatActivity {
         final EditText t3 = (EditText) findViewById(R.id.editText5);
         final EditText t4 = (EditText) findViewById(R.id.editText6);
         final EditText t5 = (EditText) findViewById(R.id.editText7);
+        t1.setKeyListener(null);
+        t2.setKeyListener(null);
+        t3.setKeyListener(null);
+        t4.setKeyListener(null);
+        t5.setKeyListener(null);
         Button Back = (Button) findViewById(R.id.buttonback);
         imageLogo = (ImageView) findViewById(R.id.imageView);
         imageLogo.setOnTouchListener(new View.OnTouchListener() {
