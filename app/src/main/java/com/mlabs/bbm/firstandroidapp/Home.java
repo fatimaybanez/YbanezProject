@@ -30,7 +30,7 @@ public class Home extends AppCompatActivity {
         t3.setKeyListener(null);
         t4.setKeyListener(null);
         t5.setKeyListener(null);
-        Button Back = (Button) findViewById(R.id.buttonback);
+
         imageLogo = (ImageView) findViewById(R.id.imageView);
         imageLogo.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -116,17 +116,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
-        assert Back != null;
-        Back.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(Home.this,LoginActivity.class );
-                startActivity(intent);}
-
-
-
-        });
         t1.setText("");
         t2.setText("");
         t3.setText("");

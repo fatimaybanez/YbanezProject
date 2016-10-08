@@ -113,8 +113,6 @@ public class SignUpActivity extends android.app.Activity {
                 {Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();}
 
 
-
-
                 if (!validateFirstName(frName))
                 {   FirstName.setError("Invalid=");
                     FirstName.requestFocus();
@@ -140,7 +138,7 @@ public class SignUpActivity extends android.app.Activity {
                     LoginDatabaseAdapter.insertEntry(frName,lsName,usName,nEmail,nPass);
                     Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignUpActivity.this,LoginActivity.class );
-                    startActivity(intent);}
+                    startActivity(intent);finish();}
 
             }
         });

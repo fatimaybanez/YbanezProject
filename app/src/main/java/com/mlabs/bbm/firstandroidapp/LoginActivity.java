@@ -56,15 +56,17 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
                     Intent intentSignUP=new Intent(getApplicationContext(),Home.class);
                     startActivity(intentSignUP);
+                    finish();
                 }
+
+
                 else if(password.equals(storedPassword2))
                 {
                     Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
                     Intent intentSignUP=new Intent(getApplicationContext(),Home.class);
                     startActivity(intentSignUP);
-
                     email_ad.setText("");
-                    password_tu.setText("");
+                    password_tu.setText("");finish();
                 }
 
 
@@ -102,11 +104,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
-                email_ad.setText("");
-                password_tu.setText("");
+                finish();
+
+
 
             }
-        });}
+        }); }
     @Override
     protected void onDestroy() {
         super.onDestroy();
