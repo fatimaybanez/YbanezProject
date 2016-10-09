@@ -33,100 +33,70 @@ public class Home extends AppCompatActivity {
 
         imageLogo = (ImageView) findViewById(R.id.imageView);
         imageLogo.setOnTouchListener(new View.OnTouchListener() {
+            float x,y,x1,y1;
+
             @Override
-            public boolean onTouch(View view, MotionEvent event) {
+            public boolean onTouch(View view, MotionEvent e) {
 
+                String actionX = "";
+                String actionY = "";
+                String quadrant = "";
 
-                switch (event.getAction()) {
+                switch (e.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        x1 = event.getX();
-                        y1 = event.getY();
-
-
-                        t1.setText(x1 + ","+y1);
-
-
-
+                        x = e.getX();
+                        y = e.getY();
+                        return true;
                     case MotionEvent.ACTION_UP:
-                        x2 = event.getX();
-                        y2= event.getY();
+                        float X = imageLogo.getRight()/2;
+                        float Y = imageLogo.getBottom()/2;
 
-                        t2.setText(x2 +","+y2);
+                        x1=e.getX();
+                        y1=e.getY();
 
+                        actionX = "";
+                        actionY = "";
+                        quadrant = "";
 
-                        a=x1-x2;
-
-                        b=y1-y2;
-
-                        t3.setText(Math.abs(a) +","+Math.abs(b));
-
-                        if (a>0 & b>0 ){
-
-                            msg2="2nd Quadrant";
-
+                        if (x<x1){
+                            actionX = "Swiped Right ";
+                        }
+                        if (x>x1){
+                            actionX = "Swiped Left ";
+                        }
+                        if (y<y1){
+                            actionY = "Swiped Down ";
+                        }
+                        if (y>y1)
+                        {
+                            actionY = "Swiped Up ";
                         }
 
-                        if (a>0 & b<0){
-
-                            msg2="3rd Quadrant";
+                        if(x1>X && y1>Y){
+                            quadrant = "Quadrant 4";
+                        }
+                        if(x1<X && y1>Y){
+                            quadrant = "Quadrant 3";
+                        }
+                        if(x1<X && y1<Y){
+                            quadrant = "Quadrant 2";
+                        }
+                        if(x1>X && y1<Y){
+                            quadrant = "Quadrant 1";
                         }
 
-                        if (a<0 & b<0){
+                        t1.setText(x + " , " + y);
+                        t2.setText(x1 + " , " + y1);
+                        t3.setText(  (Math.abs(x1-x))+" , "+ (Math.abs(y1-y)) );
 
-                            msg2="4th Quadrant";
-                        }
-                        if (a<0 & b>0){
-
-                            msg2="1st Quadrant";
-                        }
-
-                        if (y1 < y2 ) {
-                            msg1 +=" Swiped Bottom";
-                        }
-                        if(y1 > y2 ){
-
-                            msg1 +=" Swiped Up";
-                        }
-                        if (x1 > x2 ){
-
-                            msg1 +=" Swiped Left";
-                        }
-
-                        if (x1 < x2 ) {
-
-                            msg1 +=" Swiped Right";
-                        }
-
-
-
-
-
-                        t4.setText(msg1);
-                        msg1="";
-                        t5.setText(msg2);
-                        msg2="";
-
-
-
+                        t5.setText(actionX + actionY);
+                        t4.setText(quadrant);
 
                 }
-
-
-                return true;
-
+                return  false;
             }
+
         });
-
-        t1.setText("");
-        t2.setText("");
-        t3.setText("");
-        t4.setText("");
-        t5.setText("");
-
     }
 
-
-
-
 }
-
